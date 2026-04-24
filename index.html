@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<meta name="description" content="AIGLE SERVICE LIVRAISON - Livraison rapide & Service coursier à Korhogo">
+<title>AIGLE SERVICE LIVRAISON | Korhogo</title>
+
+<style>
+:root {
+    --primary: #e63946;
+    --primary-dark: #c1121f;
+    --primary-light: #ffe0e3;
+    --secondary: #f4a261;
+    --secondary-dark: #e76f51;
+    --orange: #f4a261;
+    --orange-dark: #e76f51;
+    --red: #e63946;
+    --red-dark: #c1121f;
+    --white: #ffffff;
+    --dark: #1e293b;
+    --gray: #64748b;
+    --gray-light: #f8fafc;
+    --success: #10b981;
+    --whatsapp: #25D366;
+    --whatsapp-dark: #128C7E;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #fff8f0 0%, #fef3e8 100%);
+    color: var(--dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    background: none;
+    -webkit-text-fill-color: var(--orange);
+}
+
+.logo small {
+    font-size: 0.7rem;
+    display: block;
+    color: var(--gray);
+    -webkit-text-fill-color: var(--gray);
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+}
+
+nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s;
+}
+
+nav a:hover {
+    background: var(--red);
+    color: white;
+}
+
+.burger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1002;
+}
+
+.burger-menu span {
+    width: 28px;
+    height: 3px;
+    background: var(--red);
+    margin: 3px 0;
+    transition: 0.3s;
+    border-radius: 3px;
+}
+
+.burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.burger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 280px;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-xl);
+    z-index: 1001;
+    padding: 5rem 2rem 2rem;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav a {
+    color: var(--dark);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0.8rem;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.mobile-nav a:hover {
+    background: var(--red);
+    color: white;
+}
+
+.overlay-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 1000;
+    display: none;
+}
+
+.overlay-nav.active {
+    display: block;
+}
+
+/* Hero */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+    color: white;
+    padding: 4rem 5%;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=800');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.hero h1 span {
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+    padding: 0 0.5rem;
+    border-radius: 10px;
+}
+
+.hero p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.floating-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    object-fit: cover;
+    box-shadow: var(--shadow-lg);
+    opacity: 0.4;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-img:nth-child(1) { top: 10%; left: 5%; width: 70px; height: 70px; animation-delay: 0s; }
+.floating-img:nth-child(2) { bottom: 15%; right: 3%; width: 90px; height: 90px; animation-delay: 1s; }
+.floating-img:nth-child(3) { top: 20%; right: 8%; width: 60px; height: 60px; animation-delay: 2s; }
+.floating-img:nth-child(4) { bottom: 30%; left: 8%; width: 100px; height: 100px; animation-delay: 0.5s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+.btn-primary {
+    background: var(--white);
+    color: var(--red);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.btn-primary:hover {
+    background: var(--primary-dark);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.section {
+    padding: 3rem 5%;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--red);
+    margin-bottom: 2rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--red), var(--orange));
+    border-radius: 2px;
+}
+
+.service-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    color: white;
+    padding: 0.4rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+/* Grille tarifaire */
+.tarif-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.tarif-card {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: all 0.3s;
+    border-bottom: 4px solid var(--red);
+}
+
+.tarif-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.tarif-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.tarif-card h3 {
+    color: var(--red);
+    margin-bottom: 0.5rem;
+}
+
+.tarif-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--orange);
+    margin: 0.5rem 0;
+}
+
+.tarif-price small {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.tarif-desc {
+    color: var(--gray);
+    font-size: 0.85rem;
+}
+
+/* Prestations section */
+.prestations-section {
+    background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
+    padding: 2rem;
+    border-radius: 40px;
+    margin-top: 1rem;
+}
+
+.prestations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.prestation-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s;
+    box-shadow: var(--shadow);
+}
+
+.prestation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.prestation-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.prestation-card h3 {
+    color: var(--red);
+    margin-bottom: 0.5rem;
+}
+
+.prestation-card p {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Plats grid */
+.plats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.plat-card {
+    background: var(--white);
+    border-radius: 24px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+}
+
+.plat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+}
+
+.plat-card.selected {
+    border-color: var(--red);
+    transform: scale(1.02);
+}
+
+.plat-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.plat-card:hover .plat-image {
+    transform: scale(1.05);
+}
+
+.plat-info {
+    padding: 1.2rem;
+}
+
+.plat-info h3 {
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+}
+
+.plat-description {
+    font-size: 0.85rem;
+    color: var(--gray);
+    margin-bottom: 0.8rem;
+    line-height: 1.4;
+}
+
+.plat-price {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--red);
+    padding: 0.3rem 1rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+/* Coursier */
+.coursier-section {
+    background: linear-gradient(135deg, #fff5eb 0%, #ffe8d6 100%);
+    border-radius: 40px;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.coursier-header {
+    text-align: center;
+    padding: 0 1rem 1rem;
+}
+
+.coursier-header h3 {
+    font-size: 1.8rem;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+}
+
+.coursier-badge {
+    display: inline-block;
+    background: var(--red);
+    color: white;
+    padding: 0.3rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+}
+
+.articles-coursier {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.2rem;
+    margin: 2rem 0;
+}
+
+.article-coursier-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 1.2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+}
+
+.article-coursier-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.article-coursier-card.selected {
+    border-color: var(--red);
+    background: linear-gradient(135deg, #ffe0e3, #ffd4d8);
+}
+
+.article-coursier-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-coursier-card h4 {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.coursier-price {
+    color: var(--orange);
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+/* Formulaire */
+.form-section {
+    background: linear-gradient(135deg, #ffe0e3 0%, #fff0ea 100%);
+}
+
+.form-container {
+    max-width: 650px;
+    margin: 0 auto;
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow-xl);
+}
+
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--dark);
+}
+
+.form-group label .required {
+    color: var(--red);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.9rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--red);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.recap {
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    padding: 1rem;
+    border-radius: 20px;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: white;
+}
+
+.recap h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+.recap-content {
+    font-size: 0.9rem;
+    opacity: 0.95;
+}
+
+.btn-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--red), var(--orange));
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Contact section */
+.contact-info-section {
+    background: linear-gradient(135deg, var(--red) 0%, var(--orange) 100%);
+    padding: 2rem 5%;
+    color: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+    padding: 1.5rem;
+    border-radius: 24px;
+    transition: all 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.25);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+.contact-card a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.whatsapp-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn-whatsapp-contact, .btn-call-contact {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.8rem 2rem;
+    background: white;
+    color: var(--whatsapp-dark);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s;
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-call-contact {
+    background: var(--red-dark);
+    color: white;
+}
+
+.btn-whatsapp-float {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: var(--whatsapp);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    text-decoration: none;
+    z-index: 1000;
+    box-shadow: var(--shadow-xl);
+}
+
+footer {
+    background: var(--red-dark);
+    color: white;
+    padding: 2rem 5% 1rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+    .burger-menu {
+        display: flex;
+    }
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .plats-grid {
+        grid-template-columns: 1fr;
+    }
+    .articles-coursier {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    .tarif-grid {
+        grid-template-columns: 1fr;
+    }
+    .prestations-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">🦅 AIGLE SERVICE<br><span>LIVRAISON</span><small>KORHOGO</small></div>
+    <nav>
+        <a href="#home" onclick="scrollToSection('home'); closeMobileMenu()">Accueil</a>
+        <a href="#plats" onclick="scrollToSection('plats'); closeMobileMenu()">Plats</a>
+        <a href="#coursier" onclick="scrollToSection('coursier'); closeMobileMenu()">Coursier</a>
+        <a href="#tarifs" onclick="scrollToSection('tarifs'); closeMobileMenu()">Tarifs</a>
+        <a href="#commande" onclick="scrollToSection('commande'); closeMobileMenu()">Commander</a>
+        <a href="#contact" onclick="scrollToSection('contact'); closeMobileMenu()">Contact</a>
+    </nav>
+    <div class="burger-menu" id="burgerMenu" onclick="toggleMobileMenu()">
+        <span></span><span></span><span></span>
+    </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+    <a href="#home" onclick="scrollToSection('home'); closeMobileMenu()">🏠 Accueil</a>
+    <a href="#plats" onclick="scrollToSection('plats'); closeMobileMenu()">🍔 Plats</a>
+    <a href="#coursier" onclick="scrollToSection('coursier'); closeMobileMenu()">🛵 Coursier</a>
+    <a href="#tarifs" onclick="scrollToSection('tarifs'); closeMobileMenu()">💰 Tarifs</a>
+    <a href="#commande" onclick="scrollToSection('commande'); closeMobileMenu()">📝 Commander</a>
+    <a href="#contact" onclick="scrollToSection('contact'); closeMobileMenu()">📞 Contact</a>
+</div>
+<div class="overlay-nav" id="overlayNav" onclick="closeMobileMenu()"></div>
+
+<section id="home" class="hero">
+    <div class="floating-images">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=150" class="floating-img" alt="">
+        <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=150" class="floating-img" alt="">
+        <img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=150" class="floating-img" alt="">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=150" class="floating-img" alt="">
+    </div>
+    <div class="hero-content">
+        <h1>🦅 AIGLE SERVICE <span>LIVRAISON</span></h1>
+        <p>📍 KORHOGO - Quartier SODEPRA</p>
+        <p>Livraison rapide • Plats à emporter • Service coursier</p>
+        <button class="btn-primary" onclick="scrollToSection('plats')">🛵 Commander maintenant</button>
+    </div>
+</section>
+
+<!-- SECTION GRILLE TARIFAIRE -->
+<section id="tarifs" class="section">
+    <div class="container">
+        <h2 class="section-title">💰 Nos tarifs</h2>
+        <div class="tarif-grid">
+            <div class="tarif-card">
+                <div class="tarif-icon">🏍️</div>
+                <h3>Livraison en ville</h3>
+                <div class="tarif-price">500 FCFA</div>
+                <p class="tarif-desc">Livraison rapide dans Korhogo</p>
+            </div>
+            <div class="tarif-card">
+                <div class="tarif-icon">📦</div>
+                <h3>Course coursier</h3>
+                <div class="tarif-price">1 000 FCFA</div>
+                <p class="tarif-desc">Récupération et livraison</p>
+            </div>
+            <div class="tarif-card">
+                <div class="tarif-icon">🌍</div>
+                <h3>Hors ville</h3>
+                <div class="tarif-price">1 000 FCFA <small>à partir de</small></div>
+                <p class="tarif-desc">Livraison hors de Korhogo (sur devis)</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION PLATS -->
+<section id="plats" class="section">
+    <div class="container">
+        <div class="service-badge" style="display: block; text-align: center; width: fit-content; margin: 0 auto 1rem;">⭐ PLATS À EMPORTER</div>
+        <h2 class="section-title">🍔 Nos plats signature</h2>
+        <div class="plats-grid" id="platsGrid"></div>
+    </div>
+</section>
+
+<!-- SECTION COURSIER -->
+<section id="coursier" class="section">
+    <div class="container">
+        <div class="coursier-section">
+            <div class="coursier-header">
+                <div class="coursier-badge">🛵 SERVICE COURSIER</div>
+                <h3>Besoin de faire récupérer quelque chose ?</h3>
+                <p>Notre coursier se déplace pour récupérer vos colis, documents ou objets</p>
+                <p style="color: var(--red); font-weight: bold; margin-top: 0.5rem;">💰 Tarif unique : 1 000 FCFA la course</p>
+            </div>
+            <div class="articles-coursier" id="articlesCoursierGrid"></div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION PRESTATIONS -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">⭐ Nos prestations</h2>
+        <div class="prestations-section">
+            <div class="prestations-grid">
+                <div class="prestation-card">
+                    <div class="prestation-icon">🏍️</div>
+                    <h3>Livraison express</h3>
+                    <p>Livraison de plats, colis, documents à partir de <strong>500 FCFA</strong> dans Korhogo</p>
+                </div>
+                <div class="prestation-card">
+                    <div class="prestation-icon">📦</div>
+                    <h3>Course coursier</h3>
+                    <p>Service de récupération et livraire de vos objets à <strong>1 000 FCFA</strong> la course</p>
+                </div>
+                <div class="prestation-card">
+                    <div class="prestation-icon">🤝</div>
+                    <h3>Partenariat vendeuses en ligne</h3>
+                    <p>Offre spéciale pour les vendeuses en ligne : tarifs préférentiels sur les livraisons quotidiennes</p>
+                </div>
+                <div class="prestation-card">
+                    <div class="prestation-icon">📱</div>
+                    <h3>Suivi commande</h3>
+                    <p>Suivi en temps réel de votre livraison via WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION COMMANDE -->
+<section id="commande" class="section form-section">
+    <div class="container">
+        <h2 class="section-title">📍 Finaliser votre commande</h2>
+        <div class="form-container">
+            <div class="recap" id="recap">
+                <h4>📦 Récapitulatif</h4>
+                <div class="recap-content" id="recapContent">Aucun plat ou service sélectionné</div>
+            </div>
+            
+            <form id="deliveryForm">
+                <div class="form-group">
+                    <label>👤 Nom complet <span class="required">*</span></label>
+                    <input type="text" id="fullname" placeholder="Votre nom et prénom" required>
+                </div>
+
+                <div class="form-group">
+                    <label>📱 Téléphone / WhatsApp <span class="required">*</span></label>
+                    <input type="tel" id="phone" placeholder="01 01 01 07 56" required>
+                </div>
+
+                <div id="pickupSection" style="display: none;">
+                    <div class="form-group">
+                        <label>📍 Lieu de récupération <span class="required">*</span></label>
+                        <input type="text" id="pickupLocation" placeholder="Adresse où récupérer l'article">
+                    </div>
+                    <div class="form-group">
+                        <label>📝 Description précise de l'objet <span class="required">*</span></label>
+                        <textarea id="itemToPickup" rows="2" placeholder="Décrivez l'article (taille, poids...)" style="resize: none;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>👤 Contact sur place (optionnel)</label>
+                        <input type="text" id="contactPerson" placeholder="Nom et numéro">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>🏠 Lieu de livraison <span class="required">*</span></label>
+                    <input type="text" id="deliveryLocation" placeholder="Adresse complète à Korhogo" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>📅 Date</label>
+                        <input type="date" id="deliveryDate">
+                    </div>
+                    <div class="form-group">
+                        <label>⏰ Heure</label>
+                        <input type="time" id="deliveryTime">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>📝 Instructions</label>
+                    <textarea id="instructions" rows="2" placeholder="Porte, code, sonnette, quartier précis..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">🚀 Valider la commande</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION CONTACT -->
+<section id="contact" class="contact-info-section">
+    <div class="contact-grid">
+        <div class="contact-card">
+            <div class="contact-icon">📍</div>
+            <h4>Notre siège</h4>
+            <p>KORHOGO, Quartier SODEPRA</p>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h4>Téléphone principal</h4>
+            <a href="tel:+2250101010756">+225 01 01 01 07 56</a>
+        </div>
+        <div class="contact-card">
+            <div class="contact-icon">📞</div>
+            <h4>Téléphone secondaire</h4>
+            <a href="tel:+2250788485348">+225 07 88 48 53 48</a>
+        </div>
+    </div>
+    <div class="whatsapp-buttons">
+        <a href="https://wa.me/2250101010756" target="_blank" class="btn-whatsapp-contact">💬 WhatsApp (01 01 01 07 56)</a>
+        <a href="tel:+2250101010756" class="btn-call-contact">📞 Appeler maintenant</a>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>🦅 AIGLE SERVICE LIVRAISON</h4>
+            <p>📍 Korhogo, Quartier SODEPRA</p>
+            <p>📞 +225 01 01 01 07 56</p>
+            <p>📞 +225 07 88 48 53 48</p>
+        </div>
+        <div class="footer-section">
+            <h4>Horaires</h4>
+            <p>Lundi - Dimanche: 7h - 22h</p>
+            <p>Service coursier 24/24</p>
+        </div>
+        <div class="footer-section">
+            <h4>Partenariat</h4>
+            <p>🤝 Vendeuses en ligne</p>
+            <p>📦 Livraison en gros</p>
+            <p>⭐ Tarifs préférentiels</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 AIGLE SERVICE LIVRAISON - Korhogo - Livraison 500 FCFA - Coursier 1000 FCFA</p>
+    </div>
+</footer>
+
+<a href="https://wa.me/2250101010756" target="_blank" class="btn-whatsapp-float">💬</a>
+
+<script>
+const WHATSAPP_NUMBER = "2250101010756";
+
+const platsData = [
+    { id: 1, name: "Alloco", image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400", description: "Banane plantain frite, sauce tomate oignons, poisson braisé", price: "1 000 FCFA" },
+    { id: 2, name: "Attiéké Poisson", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400", description: "Semoule de manioc, poisson frit, légumes frais", price: "2 000 FCFA" },
+    { id: 3, name: "Kédjénou", image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400", description: "Poulet mijoté aux légumes, épices authentiques", price: "2 500 FCFA" },
+    { id: 4, name: "Riz gras", image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=400", description: "Riz cuit au gras, viande, légumes", price: "1 800 FCFA" },
+    { id: 5, name: "Garba", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400", description: "Attiéké, thon braisé, oignons", price: "1 500 FCFA" },
+    { id: 6, name: "Foutou", image: "https://images.unsplash.com/photo-1600891964092-4316c288032e?w=400", description: "Pâte d'igname, sauce graine ou gombo", price: "2 000 FCFA" }
+];
+
+const articlesCoursier = [
+    { id: 1, name: "Documents", emoji: "📄", price: "1 000 FCFA" },
+    { id: 2, name: "Colis", emoji: "📦", price: "1 000 FCFA" },
+    { id: 3, name: "Médicaments", emoji: "💊", price: "1 000 FCFA" },
+    { id: 4, name: "Clés", emoji: "🔑", price: "1 000 FCFA" },
+    { id: 5, name: "Vêtements", emoji: "👕", price: "1 000 FCFA" },
+    { id: 6, name: "Électronique", emoji: "📱", price: "1 000 FCFA" }
+];
+
+let selectedPlat = null;
+let selectedArticleCoursier = null;
+let activeService = "plat";
+
+function generatePlats() {
+    const grid = document.getElementById('platsGrid');
+    grid.innerHTML = '';
+    platsData.forEach(plat => {
+        const card = document.createElement('div');
+        card.className = 'plat-card';
+        card.onclick = () => selectPlat(plat, card);
+        card.innerHTML = `
+            <img class="plat-image" src="${plat.image}" alt="${plat.name}" loading="lazy">
+            <div class="plat-info">
+                <h3>${plat.name}</h3>
+                <p class="plat-description">${plat.description}</p>
+                <span class="plat-price">💰 ${plat.price}</span>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function generateArticlesCoursier() {
+    const grid = document.getElementById('articlesCoursierGrid');
+    grid.innerHTML = '';
+    articlesCoursier.forEach(article => {
+        const card = document.createElement('div');
+        card.className = 'article-coursier-card';
+        card.onclick = () => selectArticleCoursier(article, card);
+        card.innerHTML = `
+            <div class="article-coursier-emoji">${article.emoji}</div>
+            <h4>${article.name}</h4>
+            <div class="coursier-price">🚚 ${article.price}</div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function selectPlat(plat, cardElement) {
+    document.querySelectorAll('.plat-card').forEach(card => card.classList.remove('selected'));
+    document.querySelectorAll('.article-coursier-card').forEach(card => card.classList.remove('selected'));
+    cardElement.classList.add('selected');
+    selectedPlat = plat;
+    selectedArticleCoursier = null;
+    activeService = "plat";
+    document.getElementById('pickupSection').style.display = 'none';
+    document.getElementById('recapContent').innerHTML = `🍔 ${plat.name}<br>💰 ${plat.price}<br>📍 Livraison: 500 FCFA`;
+    scrollToSection('commande');
+}
+
+function selectArticleCoursier(article, cardElement) {
+    document.querySelectorAll('.article-coursier-card').forEach(card => card.classList.remove('selected'));
+    document.querySelectorAll('.plat-card').forEach(card => card.classList.remove('selected'));
+    cardElement.classList.add('selected');
+    selectedArticleCoursier = article;
+    selectedPlat = null;
+    activeService = "coursier";
+    document.getElementById('pickupSection').style.display = 'block';
+    document.getElementById('recapContent').innerHTML = `🛵 Service coursier<br>📦 ${article.name}<br>💰 ${article.price}`;
+    scrollToSection('commande');
+}
+
+document.getElementById('deliveryForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!selectedPlat && !selectedArticleCoursier) {
+        alert("⚠️ Veuillez sélectionner un plat ou un service coursier");
+        return;
+    }
+    const fullname = document.getElementById('fullname').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const deliveryLocation = document.getElementById('deliveryLocation').value.trim();
+    if (!fullname || !phone || !deliveryLocation) {
+        alert("Veuillez remplir tous les champs obligatoires");
+        return;
+    }
+    let msg = `*🦅 AIGLE SERVICE LIVRAISON - COMMANDE*%0A%0A`;
+    if (activeService === "plat" && selectedPlat) {
+        msg += `*🍔 PLAT:* ${selectedPlat.name}%0A`;
+        msg += `*💰 PRIX PLAT:* ${selectedPlat.price}%0A`;
+        msg += `*🚚 LIVRAISON:* 500 FCFA%0A`;
+    } else if (activeService === "coursier" && selectedArticleCoursier) {
+        const pickupLocation = document.getElementById('pickupLocation').value.trim();
+        const itemToPickup = document.getElementById('itemToPickup').value.trim();
+        if (!pickupLocation || !itemToPickup) {
+            alert("Veuillez remplir le lieu et la description de l'objet");
+            return;
+        }
+        msg += `*🛵 SERVICE COURSIER*%0A`;
+        msg += `*📦 OBJET:* ${selectedArticleCoursier.name}%0A`;
+        msg += `*💰 FRAIS COURSIER:* ${selectedArticleCoursier.price}%0A`;
+        msg += `*📍 RÉCUPÉRATION:* ${pickupLocation}%0A`;
+        msg += `*📝 DESCRIPTION:* ${itemToPickup}%0A`;
+        const contactPerson = document.getElementById('contactPerson').value;
+        if(contactPerson) msg += `*👤 CONTACT SUR PLACE:* ${contactPerson}%0A`;
+    }
+    msg += `%0A*👤 CLIENT:* ${fullname}%0A`;
+    msg += `*📱 TÉLÉPHONE:* ${phone}%0A`;
+    msg += `*🏠 LIVRAISON:* ${deliveryLocation}%0A`;
+    const deliveryDate = document.getElementById('deliveryDate').value;
+    const deliveryTime = document.getElementById('deliveryTime').value;
+    const instructions = document.getElementById('instructions').value;
+    if(deliveryDate) msg += `*📅 DATE:* ${deliveryDate}%0A`;
+    if(deliveryTime) msg += `*⏰ HEURE:* ${deliveryTime}%0A`;
+    if(instructions) msg += `*📝 INSTRUCTIONS:* ${instructions}%0A`;
+    msg += `%0A📍 Siège: KORHOGO, Quartier SODEPRA`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`);
+    alert("✅ Commande envoyée ! Un livreur vous contactera sous 5 min.");
+    document.getElementById('deliveryForm').reset();
+    document.querySelectorAll('.plat-card, .article-coursier-card').forEach(card => card.classList.remove('selected'));
+    selectedPlat = null;
+    selectedArticleCoursier = null;
+    document.getElementById('recapContent').innerHTML = 'Aucun plat ou service sélectionné';
+    document.getElementById('pickupSection').style.display = 'none';
+    document.getElementById('deliveryDate').value = new Date().toISOString().split('T')[0];
+});
+
+function toggleMobileMenu() {
+    const burger = document.getElementById('burgerMenu');
+    const mobileNav = document.getElementById('mobileNav');
+    const overlay = document.getElementById('overlayNav');
+    burger.classList.toggle('active');
+    mobileNav.classList.toggle('active');
+    overlay.classList.toggle('active');
+}
+
+function closeMobileMenu() {
+    document.getElementById('burgerMenu').classList.remove('active');
+    document.getElementById('mobileNav').classList.remove('active');
+    document.getElementById('overlayNav').classList.remove('active');
+}
+
+function scrollToSection(sectionId) {
+    const el = document.getElementById(sectionId);
+    if(el) el.scrollIntoView({ behavior: 'smooth' });
+    closeMobileMenu();
+}
+
+document.getElementById('deliveryDate').value = new Date().toISOString().split('T')[0];
+generatePlats();
+generateArticlesCoursier();
+</script>
+
+</body>
+</html>
