@@ -803,7 +803,7 @@ footer {
     <a href="#coursier" onclick="scrollToSection('coursier'); closeMobileMenu()">Coursier</a>
     <a href="#tarifs" onclick="scrollToSection('tarifs'); closeMobileMenu()">Tarifs</a>
     <a href="#commande" onclick="scrollToSection('commande'); closeMobileMenu()">Commander</a>
-    <a href="#contact" onclick="scrollToSection('contact'); closeMobileMenu()">📞 Contact</a>
+    <a href="#contact" onclick="scrollToSection('contact'); closeMobileMenu()">Contact</a>
 </div>
 <div class="overlay-nav" id="overlayNav" onclick="closeMobileMenu()"></div>
 
@@ -818,7 +818,7 @@ footer {
         <h1>🦅 AIGLE SERVICE <span>LIVRAISON</span></h1>
         <p>📍 KORHOGO - Quartier SODEPRA</p>
         <p>Livraison rapide • Plats à emporter • Service coursier</p>
-        <button class="btn-primary" onclick="scrollToSection('plats')">🛵 Commander maintenant</button>
+        <button class="btn-primary" onclick="scrollToSection('plats')">Commander maintenant</button>
     </div>
 </section>
 
@@ -1087,7 +1087,7 @@ function selectPlat(plat, cardElement) {
     selectedArticleCoursier = null;
     activeService = "plat";
     document.getElementById('pickupSection').style.display = 'none';
-    document.getElementById('recapContent').innerHTML = `🍔 ${plat.name}<br>💰 ${plat.price}<br>📍 Livraison: 500 FCFA`;
+    document.getElementById('recapContent').innerHTML = `${plat.name}<br> ${plat.price}<br Livraison: 500 FCFA`;
     scrollToSection('commande');
 }
 
@@ -1099,7 +1099,7 @@ function selectArticleCoursier(article, cardElement) {
     selectedPlat = null;
     activeService = "coursier";
     document.getElementById('pickupSection').style.display = 'block';
-    document.getElementById('recapContent').innerHTML = `🛵 Service coursier<br>📦 ${article.name}<br>💰 ${article.price}`;
+    document.getElementById('recapContent').innerHTML = `Service coursier<br> ${article.name}<br> ${article.price}`;
     scrollToSection('commande');
 }
 
@@ -1118,9 +1118,9 @@ document.getElementById('deliveryForm').addEventListener('submit', function(e) {
     }
     let msg = `*🦅 AIGLE SERVICE LIVRAISON - COMMANDE*%0A%0A`;
     if (activeService === "plat" && selectedPlat) {
-        msg += `*🍔 PLAT:* ${selectedPlat.name}%0A`;
-        msg += `*💰 PRIX PLAT:* ${selectedPlat.price}%0A`;
-        msg += `*🚚 LIVRAISON:* 500 FCFA%0A`;
+        msg += `* PLAT:* ${selectedPlat.name}%0A`;
+        msg += `* PRIX PLAT:* ${selectedPlat.price}%0A`;
+        msg += `* LIVRAISON:* 500 FCFA%0A`;
     } else if (activeService === "coursier" && selectedArticleCoursier) {
         const pickupLocation = document.getElementById('pickupLocation').value.trim();
         const itemToPickup = document.getElementById('itemToPickup').value.trim();
@@ -1128,11 +1128,11 @@ document.getElementById('deliveryForm').addEventListener('submit', function(e) {
             alert("Veuillez remplir le lieu et la description de l'objet");
             return;
         }
-        msg += `*🛵 SERVICE COURSIER*%0A`;
-        msg += `*📦 OBJET:* ${selectedArticleCoursier.name}%0A`;
-        msg += `*💰 FRAIS COURSIER:* ${selectedArticleCoursier.price}%0A`;
-        msg += `*📍 RÉCUPÉRATION:* ${pickupLocation}%0A`;
-        msg += `*📝 DESCRIPTION:* ${itemToPickup}%0A`;
+        msg += `* SERVICE COURSIER*%0A`;
+        msg += `* OBJET:* ${selectedArticleCoursier.name}%0A`;
+        msg += `* FRAIS COURSIER:* ${selectedArticleCoursier.price}%0A`;
+        msg += `* RÉCUPÉRATION:* ${pickupLocation}%0A`;
+        msg += `* DESCRIPTION:* ${itemToPickup}%0A`;
         const contactPerson = document.getElementById('contactPerson').value;
         if(contactPerson) msg += `*👤 CONTACT SUR PLACE:* ${contactPerson}%0A`;
     }
