@@ -823,32 +823,7 @@ footer {
     </div>
 </section>
 
-<!-- SECTION GRILLE TARIFAIRE -->
-<section id="tarifs" class="section">
-    <div class="container">
-        <h2 class="section-title">Nos tarifs</h2>
-        <div class="tarif-grid">
-            <div class="tarif-card">
-                <div class="tarif-icon">🏍️</div>
-                <h3>Livraison en ville</h3>
-                <div class="tarif-price">500 FCFA</div>
-                <p class="tarif-desc">Livraison rapide dans Korhogo</p>
-            </div>
-            <div class="tarif-card">
-                <div class="tarif-icon">📦</div>
-                <h3>Course coursier</h3>
-                <div class="tarif-price">1 000 FCFA</div>
-                <p class="tarif-desc">Récupération et livraison</p>
-            </div>
-            <div class="tarif-card">
-                <div class="tarif-icon">🌍</div>
-                <h3>Hors ville</h3>
-                <div class="tarif-price">1 000 FCFA <small>à partir de</small></div>
-                <p class="tarif-desc">Livraison hors de Korhogo (sur devis)</p>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 <!-- SECTION PLATS -->
 <section id="plats" class="section">
@@ -900,6 +875,32 @@ footer {
                     <h3>Suivi commande</h3>
                     <p>Suivi en temps réel de votre livraison via WhatsApp</p>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- SECTION GRILLE TARIFAIRE -->
+<section id="tarifs" class="section">
+    <div class="container">
+        <h2 class="section-title">Nos tarifs</h2>
+        <div class="tarif-grid">
+            <div class="tarif-card">
+                <div class="tarif-icon">🏍️</div>
+                <h3>Livraison en ville</h3>
+                <div class="tarif-price">500 FCFA</div>
+                <p class="tarif-desc">Livraison rapide dans Korhogo</p>
+            </div>
+            <div class="tarif-card">
+                <div class="tarif-icon">📦</div>
+                <h3>Course coursier</h3>
+                <div class="tarif-price">1 000 FCFA</div>
+                <p class="tarif-desc">Récupération et livraison</p>
+            </div>
+            <div class="tarif-card">
+                <div class="tarif-icon">🌍</div>
+                <h3>Hors ville</h3>
+                <div class="tarif-price">1 000 FCFA <small>à partir de</small></div>
+                <p class="tarif-desc">Livraison hors de Korhogo (sur devis)</p>
             </div>
         </div>
     </div>
@@ -1137,16 +1138,16 @@ document.getElementById('deliveryForm').addEventListener('submit', function(e) {
         const contactPerson = document.getElementById('contactPerson').value;
         if(contactPerson) msg += `*👤 CONTACT SUR PLACE:* ${contactPerson}%0A`;
     }
-    msg += `%0A*👤 CLIENT:* ${fullname}%0A`;
-    msg += `*📱 TÉLÉPHONE:* ${phone}%0A`;
-    msg += `*🏠 LIVRAISON:* ${deliveryLocation}%0A`;
+    msg += `CLIENT: ${fullname}`;
+    msg += ` TÉLÉPHONE: ${phone}`;
+    msg += `LIVRAISON: ${deliveryLocation}`;
     const deliveryDate = document.getElementById('deliveryDate').value;
     const deliveryTime = document.getElementById('deliveryTime').value;
     const instructions = document.getElementById('instructions').value;
-    if(deliveryDate) msg += `*📅 DATE:* ${deliveryDate}%0A`;
-    if(deliveryTime) msg += `*⏰ HEURE:* ${deliveryTime}%0A`;
-    if(instructions) msg += `*📝 INSTRUCTIONS:* ${instructions}%0A`;
-    msg += `%0A📍 Siège: KORHOGO, Quartier SODEPRA`;
+    if(deliveryDate) msg += `DATE:${deliveryDate}`;
+    if(deliveryTime) msg += ` HEURE: ${deliveryTime}`;
+    if(instructions) msg += ` INSTRUCTIONS: ${instructions}`;
+    msg += `📍 Siège: KORHOGO, Quartier SODEPRA`;
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`);
     alert("✅ Commande envoyée ! Un livreur vous contactera sous 5 min.");
     document.getElementById('deliveryForm').reset();
